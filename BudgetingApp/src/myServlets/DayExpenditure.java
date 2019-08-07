@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.DBConnection;
 
-@WebServlet("/Expenditure")
-public class Expenditure extends HttpServlet {
+@WebServlet("/DayExpenditure")
+public class DayExpenditure extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
   /*  public Expenditure_servlet() {

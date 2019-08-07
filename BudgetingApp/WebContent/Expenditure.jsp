@@ -57,7 +57,7 @@ input[type=submit] {
 	<h1>EXPENDITURE</h1>
 	<h3>Please enter details in correct format</h3>
 	
-	<form method="post" action="expenditure">
+	<form method="post" action="Expenditure">
 		<table>
 
 			<tr><td><input type="text" name="date" placeholder = "DD/MM/YYYY"></td></tr>
