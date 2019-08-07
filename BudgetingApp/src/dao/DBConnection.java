@@ -9,29 +9,6 @@ public class DBConnection {
 	static String password = "";
 	static Connection myConn;
 		
-/*	public static void main(String[] args) {	
-		try {
-			myConn = DriverManager.getConnection(dbUrl, user, password);
-		
-			// create a statement
-			Statement myStmt = myConn.createStatement();
-		
-		// execute the query
-		ResultSet rs = myStmt.executeQuery("select * from students");
-		
-	
-		//process the resultset object
-		while(rs.next()) {
-			System.out.println(rs.getString("username") + "" + rs.getString("password"));
-		}
-			myStmt.close();
-			myConn.close();
-		
-		}catch(Exception e){
-			e.printStackTrace();
-		}	
-	}*/
-
 	public static String getPassword(String username) {
 		
 		String string_pw = "";
@@ -43,10 +20,10 @@ public class DBConnection {
 			pstmt.setString(1, username);
 			
 			ResultSet resultSet = pstmt.executeQuery();
-				System.out.println("username: " + username);
+				//System.out.println("username: " + username);
 		if (resultSet.next()) {
 			string_pw = resultSet.getString("password");
-				System.out.println("resultSet.getString(password): " + resultSet.getString("password"));
+				//System.out.println("resultSet.getString(password): " + resultSet.getString("password"));
 		 }
 			pstmt.close();
 			myConn.close();	
@@ -57,7 +34,7 @@ public class DBConnection {
 		return string_pw;
 	}
 	
-	public static void Expenditure(String date, String day,
+	public static void expenditure(String date, String day,
 										String item, String cost){
 		
 		String expenditure
@@ -72,14 +49,35 @@ public class DBConnection {
 			pstmt.setString(3, item);
 			pstmt.setString(4, cost);
 			
-			System.out.println("date: " + date);
+/*			System.out.println("date: " + date);
 			System.out.println("day: " + day);
 			System.out.println("item: " + item);
-			System.out.println("cost: " + cost);
+			System.out.println("cost: " + cost);*/
 			
 			pstmt.executeUpdate();
 			pstmt.close();
 		    
+		}catch(Exception e){
+			e.printStackTrace();	
+		}	
+	}
+	
+	public static void dayExpenditure(String date){
+
+		String dayExpenditure
+			= "SELECT * from expenditure WHERE date = ?";
+		
+		try {
+			myConn = DriverManager.getConnection(dbUrl, user, password);
+		
+			PreparedStatement pstmt = myConn.prepareStatement(dayExpenditure);
+			pstmt.setString(1, date);
+			
+			ResultSet rs=pstmt.executeQuery();  
+			while(rs.next()){  
+				System.out.println(rs.getString(1));  
+			}  
+			pstmt.close();		    
 		}catch(Exception e){
 			e.printStackTrace();	
 		}	

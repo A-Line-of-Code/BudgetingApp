@@ -7,7 +7,7 @@
 </head>
 
 <body>	
-	<form method="post" action="expenditure">
+	<form method="post" action="Expenditure">
 		<table>
 		<tr><td>Note: Please enter the correct format for the data that you input (date, day, item, and cost)!</td></tr>
 			<tr>

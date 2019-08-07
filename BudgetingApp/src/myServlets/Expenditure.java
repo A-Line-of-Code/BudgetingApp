@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.DBConnection;
 
-@WebServlet("/expenditure")
-public class expenditure extends HttpServlet {
+@WebServlet("/Expenditure")
+public class Expenditure extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
   /*  public Expenditure_servlet() {
@@ -24,7 +24,8 @@ public class expenditure extends HttpServlet {
 		String day = request.getParameter("day");
 		String item = request.getParameter("item");
 		String cost = request.getParameter("cost");
-		DBConnection.Expenditure(date, day, item, cost);		
+		DBConnection.expenditure(date, day, item, cost);
+		response.sendRedirect("DayExpenditure.jsp");
 	}
 
 }
