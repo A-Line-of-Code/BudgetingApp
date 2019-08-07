@@ -9,6 +9,7 @@
 <body>	
 	<form method="post" action="expenditure">
 		<table>
+			<tr>Please follow the instruction</tr>
 			<tr>
 				<td><input type="text" name="date" placeholder = "DD/MM/YYYY"></td>
 				<td><input type="text" name="day" placeholder = "Monday"></td>
