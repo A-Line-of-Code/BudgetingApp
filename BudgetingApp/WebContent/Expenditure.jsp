@@ -9,7 +9,7 @@
 <body>	
 	<form method="post" action="expenditure">
 		<table>
-		<tr><td>Please follow the formatting when you insert data</td></tr>
+		<tr><td>Note: Please enter the correct format for the data that you input (date, day, item, and cost)!</td></tr>
 			<tr>
 				<td><input type="text" name="date" placeholder = "DD/MM/YYYY"></td>
 				<td><input type="text" name="day" placeholder = "Monday"></td>
