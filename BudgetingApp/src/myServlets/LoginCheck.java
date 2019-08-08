@@ -30,7 +30,7 @@ public class LoginCheck extends HttpServlet {
 		String password = request.getParameter("password");
 		String string_pw = DBConnection.getPassword(username);
 		if( password.equals(string_pw)) {
-			response.sendRedirect("Expenditure.jsp");
+			response.sendRedirect("Home.jsp");
 		}else {
 			response.sendRedirect("Error.jsp");
 		}
