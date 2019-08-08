@@ -1,8 +1,6 @@
 package dao;
 
 import java.sql.*;
-import model.Expenditure;
-import java.util.*;
 
 public class DBConnection {
 	
@@ -62,34 +60,5 @@ public class DBConnection {
 		}catch(Exception e){
 			e.printStackTrace();	
 		}	
-	}
-	
-	public static ArrayList<Expenditure> expenditureList (String date){
-		
-		ArrayList<Expenditure> arr = new ArrayList<>();
-		ResultSet rs = null;
-		String  expenditureList
-			= "SELECT * from expenditure WHERE date = ?";
-		
-		try {
-			myConn = DriverManager.getConnection(dbUrl, user, password);
-		
-			PreparedStatement pstmt = myConn.prepareStatement(expenditureList);
-			pstmt.setString(1, date);
-			rs=pstmt.executeQuery(); 
-			
-			while(rs.next()){  
-				Expenditure ex = new Expenditure();
-				ex.setDate(rs.getString("date"));
-				ex.setDay(rs.getString("day"));
-				ex.setItem(rs.getString("item"));
-				ex.setCost(rs.getString("cost"));
-				arr.add(ex);
-			}  
-			pstmt.close();
-		}catch(Exception e){
-			e.printStackTrace();	
-		}
-		return arr;
 	}
 }
