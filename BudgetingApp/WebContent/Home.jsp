@@ -8,11 +8,14 @@
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+<form name="Menu" action="Menu" method="get">
 <h1>Budget App</h1>
 <b>Welcome to this here budgeting app.</b>
+<p></p>
 
-<INPUT TYPE="BUTTON" VALUE="Expenditure" ONCLICK="btnExpenditure()">
-<INPUT TYPE="BUTTON" VALUE="Saving" ONCLICK="btnSaving()">
+<input type=button onClick="location.href='Expenditure.jsp'" value='Expenditure'>
+<input type=button onClick="location.href='Saving.jsp'" value='Saving'>
+</form>
 
 </body>
 </html>
