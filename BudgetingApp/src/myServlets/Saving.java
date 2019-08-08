@@ -20,6 +20,7 @@ public class Saving extends HttpServlet {
 		double amount = calculateGoal(goal, starting_amount, start_date, end_date);
 		
 		JOptionPane.showMessageDialog(null, "You need to save $" + amount + " each week!");
+		res.sendRedirect("Home.jsp");
 	}
 	
 	public static double calculateGoal(String goal, String starting_amount, String start_date, String end_date) {

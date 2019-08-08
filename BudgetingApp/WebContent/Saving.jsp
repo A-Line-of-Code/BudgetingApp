@@ -4,6 +4,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Saving</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>	
