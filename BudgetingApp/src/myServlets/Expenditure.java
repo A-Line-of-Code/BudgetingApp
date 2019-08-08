@@ -12,13 +12,8 @@ import dao.DBConnection;
 @WebServlet("/Expenditure")
 public class Expenditure extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-  /*  public Expenditure_servlet() {
-        super();
-    }*/
 	
-	public void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String date = request.getParameter("date");
 		String day = request.getParameter("day");

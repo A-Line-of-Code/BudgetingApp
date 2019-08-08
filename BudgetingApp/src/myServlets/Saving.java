@@ -1,46 +1,42 @@
 package myServlets;
 
-import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
+import java.io.*;
+import javax.servlet.annotation.*;
 import javax.servlet.http.*;
+import javax.swing.*;
 import java.text.*;
 import java.util.*;
-import javax.swing.*;
 
 @WebServlet("/Saving")
 public class Saving extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	public void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		String goal = request.getParameter("goal");
-		String starting_amount = request.getParameter("starting_amount");
-		String start_date = request.getParameter("start_date");
-		String end_date = request.getParameter("end_date");
-		double test = calculateGoal(goal, starting_amount, start_date, end_date);
-		JOptionPane.showMessageDialog( null, test );
+	public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		String goal = req.getParameter("goal");
+		String starting_amount = req.getParameter("starting_amount");
+		String start_date = req.getParameter("start_date");
+		String end_date = req.getParameter("end_date");
+		
+		double amount = calculateGoal(goal, starting_amount, start_date, end_date);
+		
+		JOptionPane.showMessageDialog(null, "You need to save $" + amount + " each week!");
 	}
 	
 	public static double calculateGoal(String goal, String starting_amount, String start_date, String end_date) {
-		double duration = 0.0;
-		
 		try {
 			Date start = new SimpleDateFormat("dd/MM/yyyy").parse(start_date);
 			Date end = new SimpleDateFormat("dd/MM/yyyy").parse(end_date);
 
-			duration = end.getTime() - start.getTime();			
-			
-			duration = (duration / (24 * 60 * 60 * 1000)) / 7;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+			double duration = (end.getTime() - start.getTime()) / 1000 / 60 / 60 / 24 / 7;
 
-		double css = Double.parseDouble(goal);
-		double ssc = Double.parseDouble(starting_amount);
-		double amount = css - ssc;
+			double doubleGoal = Double.parseDouble(goal);
+			double doubleStartingAmount = Double.parseDouble(starting_amount);
 		
-		return amount - duration;
+			return (doubleGoal - doubleStartingAmount) / duration;
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		
+			return -1;
 	}
 }
