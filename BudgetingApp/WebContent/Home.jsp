@@ -10,7 +10,6 @@
 <body>
 <form name="Menu" action="Menu" method="get">
 <h1>Budget App</h1>
-<b>Welcome to this here budgeting app.</b>
 <p></p>
 
 <input type=button onClick="location.href='Expenditure.jsp'" value='Expenditure'>
