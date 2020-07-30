@@ -1,3 +1,6 @@
-# A small project done during the course at school to practice team collaboration on GitHub.
+## A team project at school (1)
+
+Development: Java <br />
+Purpose: Team collaboration
 
 
